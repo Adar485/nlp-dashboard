@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NLP Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>📊 NLP Metin Analiz Dashboard</h1>
+
+        <div class="input-section">
+            <textarea id="textInput" placeholder="Analiz edilecek metni girin..."></textarea>
+            <button id="analyzeBtn" onclick="analyzeText()">Analiz Et</button>
+        </div>
+
+        <div class="file-section">
+            <label class="file-label" for="fileInput">📁 Dosya Yükle (TXT / PDF)</label>
+            <input type="file" id="fileInput" accept=".txt,.pdf" onchange="analyzeFile()" />
+            <span id="fileName"></span>
+        </div>
+
+        <div id="result" class="result-section" style="display:none;">
+            <div class="result-card">
+                <h3>Duygu Analizi</h3>
+                <p id="sentimentLabel"></p>
+                <p id="sentimentScore"></p>
+                <p id="langLabel"></p>
+            </div>
+            <div class="result-card">
+                <h3>Varlıklar (NER)</h3>
+                <ul id="entitiesList"></ul>
+            </div>
+            <div class="result-card">
+                <h3>Anahtar Kelimeler</h3>
+                <ul id="keywordsList"></ul>
+            </div>
+        </div>
+
+        <div class="charts-section">
+            <div class="chart-container">
+                <canvas id="sentimentChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <canvas id="keywordsChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <canvas id="timelineChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/charts.js"></script>
+</body>
+</html>
